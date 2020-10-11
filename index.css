@@ -1,0 +1,31 @@
+.noselect {
+  -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Old versions of Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome, Edge, Opera and Firefox */
+}
+
+.form-control:focus {
+	box-shadow: none;
+}
+.form-check-input:checked + label{
+	text-decoration:line-through;
+	color: #6c757d;
+}
+.task:hover .delete-task{
+	display: block!important;
+	color: black;
+}
+input{
+	background: aliceblue!important;
+}
+.nav-link {
+    display: block;
+    padding: .2rem 0.5rem;
+}
+.list-group li .form-check{ 
+	background-color: aliceblue;
+}
