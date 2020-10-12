@@ -1,11 +1,11 @@
-var taskNumber = 7; 		// make it 0
+var taskNumber = 0;
 
 var deleteTaskButtons = document.querySelectorAll('.delete-task');
 console.log('deleteTaskButtons', deleteTaskButtons);
 console.log('1');
 
 var checkboxes = document.querySelectorAll("input[type=checkbox]");
-
+console.log("checkboxes length", checkboxes.length);
 
 // intitialize function
 (function() {
@@ -25,6 +25,15 @@ function countTask () {
 			tasksCount++;
 		}
 	}
+
+	let para = document.getElementById('no-task');
+	console.log("para", para);
+	if (checkboxes.length > 0) {
+		para.style.display = 'none';
+	} else {
+		para.style.display = 'block';
+	}
+
 	// update count task in dom
 	document.getElementById('tasks-count').innerHTML = tasksCount + ((tasksCount > 1) ? ' tasks left' : ' task left');
 };
@@ -129,14 +138,20 @@ function deleteTask (deleteTaskButtons) {
 }
 
 // SHOW ALL TASKS
-document.getElementById('all-tab').onclick = function(){
-	for (let checkbox of checkboxes) {		
+const allTab = document.getElementById('all-tab');
+allTab.onclick = function() {
+	completedTab.classList.remove("active");
+	incompleteTab.classList.remove("active");
+	for (let checkbox of checkboxes) {	
 		checkbox.parentNode.parentNode.parentNode.style.display = 'block';
 	}
 }
 
 // SHOW COMPLETED TASKS
-document.getElementById('completed-tab').onclick = function(){
+const completedTab = document.getElementById('completed-tab');
+completedTab.onclick = function() {
+	allTab.classList.remove("active");
+	incompleteTab.classList.remove("active");
 	for (let checkbox of checkboxes) {
 		if (checkbox.checked) {
 			checkbox.parentNode.parentNode.parentNode.style.display = 'block';
@@ -147,7 +162,10 @@ document.getElementById('completed-tab').onclick = function(){
 }
 
 // SHOW INCOMPLETE TASKS
-document.getElementById('incomplete-tab').onclick = function(){
+const incompleteTab = document.getElementById('incomplete-tab');
+incompleteTab.onclick = function() {
+	allTab.classList.remove("active");
+	completedTab.classList.remove("active");
 	for (let checkbox of checkboxes) {
 		if (checkbox.checked) {
 			checkbox.parentNode.parentNode.parentNode.style.display = 'none';
