@@ -46,6 +46,7 @@ document.getElementById('task-form').onsubmit = function(e) {
 	let task = document.getElementById('task');	
 	++taskNumber;
 
+	// 1. Create and Insert HTML
 	let li = document.createElement("LI");                 // Create a <li> node
 	li.className = "list-group-item border-0 p-0 pt-3";	// Adding class to <li>
 	
@@ -84,13 +85,10 @@ document.getElementById('task-form').onsubmit = function(e) {
 	label.appendChild(textnode);                              // Append the text to <label>
 	
 	document.getElementById("task-list").append(li); 		// Append <li> at end of <ul>
-
-	// let uList = document.getElementById("task-list");
-	// uList.insertBefore(li, uList.firstChild); 		// Append <li> in the top of the <ul>
 	
 	this.reset();	// RESET FORM
 
-	// 2. update tasks left
+	// 2. Update Tasks Left
 	countTask();
 
 	// delete task buttons list
@@ -115,13 +113,13 @@ document.getElementById('select-all').onclick = function() {
 
 // CLEAR ALL COMPLETED TASK
 document.getElementById('remove-completed').onclick = function() {
-	// 1. remove completed tasks from the DOM
+	// 1. Remove Completed Tasks From The DOM
 	for (let checkbox of checkboxes) {
 		if (checkbox.checked === true) {
 			checkbox.parentNode.parentNode.parentNode.remove();
 		}
 	}
-	// 2. update tasks left
+	// 2. Update Tasks Left
 	countTask();
 }
 
@@ -179,7 +177,7 @@ incompleteTab.onclick = function() {
 function taskStatus(checkboxes){
 	for (let checkbox of checkboxes) {
 		checkbox.addEventListener( 'change', function() {
-			// TODO (shift tasks to completed/incomplete tabs)
+			// TODO (shift tasks to completed/incomplete tabs on checkbox selects)
 		    if(this.checked) {
 		        // console.log('Checkbox is checked..');
 
