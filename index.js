@@ -1,11 +1,8 @@
 var taskNumber = 0;
 
 var deleteTaskButtons = document.querySelectorAll('.delete-task');
-console.log('deleteTaskButtons', deleteTaskButtons);
-console.log('1');
 
 var checkboxes = document.querySelectorAll("input[type=checkbox]");
-console.log("checkboxes length", checkboxes.length);
 
 // intitialize function
 (function() {
@@ -27,7 +24,6 @@ function countTask () {
 	}
 
 	let para = document.getElementById('no-task');
-	console.log("para", para);
 	if (checkboxes.length > 0) {
 		para.style.display = 'none';
 	} else {
